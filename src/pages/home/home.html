@@ -1,14 +1,26 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      First Raspberry Communication
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Adjust Display
+      <ion-badge item-end>{{firstSlide}}</ion-badge>
+    </ion-list-header>
+    <ion-item>
+      <ion-range [(ngModel)]="firstSlide" debounce="800" (ionChange)="onSliderChange()">
+        <ion-icon range-left small name="sunny"></ion-icon>
+        <ion-icon range-right name="sunny"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-label>Enable "Never"</ion-label>
+      <ion-toggle (ionChange)="isDisabled = !isDisabled"></ion-toggle>
+    </ion-item>
+  </ion-list>
 </ion-content>
